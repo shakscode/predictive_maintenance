@@ -3,7 +3,7 @@ import os
 
 api = HfApi(token=os.getenv("HF_PM_TOKEN"))
 
-repo_id = "ShaksML/predictive_maintenance_data"
+repo_id = "ShaksML/predictive_maintenance_shakthi"
 repo_type = "space"
 
 # Create the Hugging Face Space if it doesn't exist

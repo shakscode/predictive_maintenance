@@ -52,7 +52,7 @@ with st.sidebar.form("sensor_inputs_form"):
     input_data['Coolant pressure'] = st.slider("Coolant Pressure (bar)", 0.0, 8.0, 2.30, 0.01)
 
     st.subheader("Temperature & RPM")
-    input_data['Engine rpm'] = st.number_input("Engine RPM", 400, 2000, 790, 10)
+    input_data['Engine rpm'] = st.number_input("Engine RPM", 400, 2000, 890, 10)
     input_data['lub oil temp'] = st.number_input("Lub Oil Temp (°C)", 70.0, 100.0, 78.0, 0.1)
     input_data['Coolant temp'] = st.number_input("Coolant Temp (°C)", 70.0, 110.0, 78.0, 0.1)
 
@@ -98,7 +98,7 @@ if model is not None:
                     st.error("⚠️ **CRITICAL ALERT: Engine Fault Detected**")
                     st.markdown("The system analysis indicates a high probability of component failure. Immediate inspection is recommended.")
                 else:
-                    st.success("✅ **STATUS: Optimal**")
+                    st.success("**STATUS: Optimal**")
                     st.markdown("All systems are functioning within normal operational parameters.")
 
             with col2:
