@@ -56,5 +56,6 @@ jobs:
         run: pip install -r predictive_maintenance/requirements.txt
       - name: Deploy to Hugging Face Space
         env:
+##        
           HF_PM_TOKEN: ${{ secrets.HF_PM_TOKEN }}
         run: python predictive_maintenance/deployment/hosting.py
