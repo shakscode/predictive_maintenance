@@ -3,7 +3,7 @@ name: Predictive maintenance Data Pipeline
 on:
   push:
     branches:
-      - main  # Automatically triggers on push to the main branch
+      - main  
 
 jobs:
   register-dataset:
@@ -14,9 +14,7 @@ jobs:
         run: pip install -r predictive_maintenance/requirements.txt
       - name: Upload Dataset to Hugging Face Hub
         env:
-          # CORRECTED: Must match the variable name used in Python script (HF_PM_TOKEN)
           HF_PM_TOKEN: ${{ secrets.HF_PM_TOKEN }}
-        # NOTE: Using feature_processor.py here, assuming it handles the data upload
         run: python predictive_maintenance/build_model/dtg.py
 
   data-prep:
@@ -28,9 +26,7 @@ jobs:
         run: pip install -r predictive_maintenance/requirements.txt
       - name: Run Data Preparation
         env:
-          # CORRECTED: Must match the variable name used in Python script (HF_PM_TOKEN)
           HF_PM_TOKEN: ${{ secrets.HF_PM_TOKEN }}
-        # NOTE: dtg.py handles data preparation and potentially re-uploads/organizes data
         run: python predictive_maintenance/build_model/feature_processor.py
 
   model-training:
